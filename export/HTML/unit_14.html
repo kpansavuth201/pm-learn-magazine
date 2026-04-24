@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Doki Doki — Unit 14: Seeing the System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 15mm;
+    }
+
+    :root {
+      --accent-deep:    #1a3a5c;
+      --accent-accent:  #2a5a8c;
+      --accent-mid:     #4a7ab0;
+      --accent-soft:    #e8f0f8;
+      --accent-ghost:   #f2f6fa;
+      --accent-border:  #c8d8e8;
+
+      --coral-deep:     #c45a3c;
+      --coral-accent:   #d4745a;
+      --coral-soft:     #fdf0ec;
+      --coral-border:   #e8c4b8;
+
+      --ink:            #1a1a1a;
+      --ink-light:      #4a4a4a;
+      --rule:           #d0d0d0;
+      --page:           #ffffff;
+      --grey-100:       #f5f5f5;
+      --grey-200:       #e8e8e8;
+      --grey-300:       #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 118mm;
+      margin: 0 auto;
+      background: var(--page);
+    }
+
+    /* Header */
+    .unit-header {
+      border-bottom: 2px solid var(--accent-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .unit-number {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .unit-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 1px;
+    }
+    .unit-subtitle {
+      font-size: 8pt;
+      color: var(--ink-light);
+    }
+
+    /* Reference Material */
+    .reference-material {
+      font-family: 'Noto Serif', Georgia, 'Times New Roman', serif;
+      font-size: 9pt;
+      background: var(--grey-100);
+      border-left: 3px solid var(--accent-mid);
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+    .reference-type-badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      padding: 1px 8px;
+      border-radius: 3px;
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .reference-material h3 {
+      font-family: 'Noto Serif', Georgia, serif;
+      font-size: 9.5pt;
+      font-weight: 700;
+      margin: 6px 0 4px 0;
+      color: var(--ink);
+    }
+    .reference-material h4 {
+      font-family: 'Noto Serif', Georgia, serif;
+      font-size: 9pt;
+      font-weight: 700;
+      margin: 5px 0 2px 0;
+      color: var(--ink);
+    }
+    .reference-material p {
+      margin-bottom: 3px;
+    }
+    .reference-material table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 4px 0;
+      font-size: 8.5pt;
+    }
+    .reference-material th {
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      padding: 3px 5px;
+      text-align: left;
+      border-bottom: 1px solid var(--accent-border);
+    }
+    .reference-material td {
+      padding: 2px 5px;
+      border-bottom: 1px solid var(--grey-200);
+      vertical-align: top;
+    }
+    .reference-material .owner-tetsu {
+      color: #2a5c2a;
+      font-weight: 600;
+    }
+    .reference-material .owner-other {
+      color: var(--ink-light);
+    }
+
+    /* Key Concept Card */
+    .term-card {
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .term-card-name {
+      font-weight: 700;
+      color: var(--accent-deep);
+      font-size: 9pt;
+      border-bottom: 1px solid var(--accent-border);
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+    .term-card-row {
+      margin-bottom: 2px;
+    }
+    .term-card-label {
+      font-weight: 600;
+      color: var(--accent-accent);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Persona tags */
+    .speaker-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-right: 4px;
+    }
+    .persona-ren    { background: #e3ecf5; color: #1a3a5c; }
+    .persona-saki   { background: #fdf0ec; color: #8c3a2a; }
+    .persona-tetsu  { background: #e8f5e8; color: #2a5c2a; }
+    .persona-kudo   { background: #f5f0e8; color: #5c4a1a; }
+    .persona-hina   { background: #f0e8f5; color: #4a2a5c; }
+
+    /* Subplot moment */
+    .subplot-moment {
+      border-left: 2px solid var(--coral-border);
+      padding-left: 8px;
+      margin: 3px 0;
+    }
+
+    /* Footer */
+    .unit-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 4px;
+      margin-top: 10px;
+      font-size: 7pt;
+      color: var(--grey-300);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="unit-header">
+    <span class="unit-number">Unit 14 &middot; Phase 1</span>
+    <h1 class="unit-title">Seeing the System</h1>
+    <p class="unit-subtitle">Making work visible</p>
+  </header>
+
+  <section>
+    <span class="reference-type-badge">Kanban Board</span>
+    <div class="reference-material">
+      <h3>Pulse Works Sprint Board &mdash; Week 4</h3>
+      <p><strong>Project:</strong> Kurosawa Digital XR Platform &nbsp;|&nbsp; <strong>Sprint:</strong> 4 of 12 &nbsp;|&nbsp; <strong>Date:</strong> Week 4, Month 2</p>
+
+      <table>
+        <tr>
+          <th>To Do</th>
+          <th>In Progress</th>
+          <th>Review</th>
+          <th>Done</th>
+        </tr>
+        <tr>
+          <td>
+            AR filter module<br>
+            <span class="owner-other">Yuki</span>
+          </td>
+          <td>
+            VR rendering engine<br>
+            <span class="owner-tetsu">Tetsu</span>
+          </td>
+          <td>
+            API auth layer<br>
+            <span class="owner-tetsu">Tetsu</span>
+          </td>
+          <td>
+            DB schema v2<br>
+            <span class="owner-other">Maki</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Admin portal UI<br>
+            <span class="owner-other">Yuki</span>
+          </td>
+          <td>
+            Catalog API endpoints<br>
+            <span class="owner-tetsu">Tetsu</span>
+          </td>
+          <td>
+            iOS SDK integration<br>
+            <span class="owner-tetsu">Tetsu</span>
+          </td>
+          <td>
+            User auth service<br>
+            <span class="owner-other">Maki</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Analytics pipeline<br>
+            <span class="owner-other">Unassigned</span>
+          </td>
+          <td>
+            Android client shell<br>
+            <span class="owner-tetsu">Tetsu</span>
+          </td>
+          <td></td>
+          <td>
+            Design system v1<br>
+            <span class="owner-other">Yuki</span>
+          </td>
+        </tr>
+      </table>
+
+      <p style="margin-top: 5px; font-style: italic; font-size: 8.5pt;">
+        Hina drew this board on the office whiteboard. She stepped back, counted the green name tags, and went quiet. Three items in progress, two in review &mdash; all five assigned to Tetsu. Everyone else had one item or none. The entire <strong>flow</strong> of work through the system was funneling through a single person.
+      </p>
+    </div>
+  </section>
+
+  <div class="subplot-moment" style="font-size: 8.5pt; color: var(--ink-light); margin-bottom: 6px; font-style: italic;">
+    <span class="speaker-tag persona-hina">Hina (陽菜)</span> "Tetsu, you have five cards. Everyone else has one or zero. That's&hellip; that can't be right, can it?"
+    <br>
+    <span class="speaker-tag persona-tetsu" style="margin-top: 2px;">Tetsu (哲)</span> "It's accurate."
+    <br>
+    <span style="display: block; margin-top: 2px;">Ren stared at the board. He'd assigned most of those items himself. The guilt landed quietly, like a door closing.</span>
+  </div>
+
+  <section>
+    <div class="term-card">
+      <div class="term-card-name">Flow</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The movement of work through a system from start to finish.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Work items entering the system, progression through stages, exit as completed output, speed and smoothness of movement.</div>
+      <div class="term-card-row"><span class="term-card-label">Related Terms </span> <strong>critical path</strong>, <strong>dependency</strong>, value stream</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The sprint board reveals that flow is blocked at "In Progress" and "Review" &mdash; both stages are jammed because Tetsu owns every item there.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Feedback Loop</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A mechanism for receiving information about output to improve process.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Output signal, measurement, comparison to goal, corrective action.</div>
+      <div class="term-card-row"><span class="term-card-label">Related Terms </span> flow, <strong>earned value</strong>, continuous learning</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The Kanban board itself is a feedback loop &mdash; it made the work imbalance visible, giving the team information they can act on.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Continuous Learning</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The practice of ongoing experimentation and knowledge sharing.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Experimentation, failure as data, knowledge sharing, process adaptation.</div>
+      <div class="term-card-row"><span class="term-card-label">Related Terms </span> feedback loop, flow, <strong>planned value</strong></div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> Hina's decision to draw the board was an experiment &mdash; she didn't know what she'd find. The result is organizational learning the team can build on.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Value Stream</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The sequence of activities required to deliver value to a customer.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Request intake, development stages, review and approval, delivery to customer.</div>
+      <div class="term-card-row"><span class="term-card-label">Related Terms </span> flow, <strong>WBS</strong>, <strong>scope baseline</strong></div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> For the XR platform, the value stream runs from feature request through development, review, and deployment. Every column on the board represents a stage in that stream.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Lead Time (Process)</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The total time from work request to work delivery.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Queue time (waiting), active work time, review/approval time, handoff time.</div>
+      <div class="term-card-row"><span class="term-card-label">Related Terms </span> flow, value stream, <strong>lead time</strong></div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The API auth layer has been in "Review" for days because Tetsu &mdash; its reviewer &mdash; is also building three other items. The lead time stretches not because the work is hard, but because the wait is long.</div>
+    </div>
+  </section>
+
+  <footer class="unit-footer">
+    <span>Project Doki Doki</span>
+    <span>Phase 1 &middot; Unit 14 / 100</span>
+  </footer>
+
+</body>
+</html>

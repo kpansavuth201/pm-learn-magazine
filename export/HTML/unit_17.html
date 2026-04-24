@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Doki Doki — Unit 17: After the Storm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 15mm;
+    }
+
+    :root {
+      --accent-deep:    #1a3a5c;
+      --accent-accent:  #2a5a8c;
+      --accent-mid:     #4a7ab0;
+      --accent-soft:    #e8f0f8;
+      --accent-ghost:   #f2f6fa;
+      --accent-border:  #c8d8e8;
+
+      --coral-deep:     #c45a3c;
+      --coral-accent:   #d4745a;
+      --coral-soft:     #fdf0ec;
+      --coral-border:   #e8c4b8;
+
+      --ink:            #1a1a1a;
+      --ink-light:      #4a4a4a;
+      --rule:           #d0d0d0;
+      --page:           #ffffff;
+      --grey-100:       #f5f5f5;
+      --grey-200:       #e8e8e8;
+      --grey-300:       #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 118mm;
+      margin: 0 auto;
+      background: var(--page);
+    }
+
+    /* Header */
+    .unit-header {
+      border-bottom: 2px solid var(--accent-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .unit-number {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .unit-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 1px;
+    }
+    .unit-subtitle {
+      font-size: 8pt;
+      color: var(--ink-light);
+    }
+
+    /* Persona tags */
+    .speaker-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-right: 4px;
+    }
+    .persona-ren   { background: #e3ecf5; color: #1a3a5c; }
+    .persona-saki  { background: #fdf0ec; color: #8c3a2a; }
+    .persona-tetsu { background: #e8f5e8; color: #2a5c2a; }
+    .persona-kudo  { background: #f5f0e8; color: #5c4a1a; }
+    .persona-hina  { background: #f0e8f5; color: #4a2a5c; }
+
+    /* Reference Material */
+    .reference-material {
+      font-family: 'Noto Serif', Georgia, 'Times New Roman', serif;
+      font-size: 9pt;
+      background: var(--grey-100);
+      border-left: 3px solid var(--accent-mid);
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+    .reference-type-badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      padding: 1px 8px;
+      border-radius: 3px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .reference-material h3 {
+      font-size: 9.5pt;
+      font-weight: 700;
+      margin: 6px 0 3px 0;
+      color: var(--ink);
+    }
+    .reference-material h3:first-of-type {
+      margin-top: 4px;
+    }
+    .reference-material p {
+      margin-bottom: 3px;
+    }
+    .reference-material ul {
+      margin: 2px 0 3px 16px;
+      padding: 0;
+    }
+    .reference-material li {
+      margin-bottom: 1px;
+    }
+
+    /* Key Concept Card */
+    .term-card {
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .term-card-name {
+      font-weight: 700;
+      color: var(--accent-deep);
+      font-size: 9pt;
+      border-bottom: 1px solid var(--accent-border);
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+    .term-card-row {
+      margin-bottom: 2px;
+    }
+    .term-card-label {
+      font-weight: 600;
+      color: var(--accent-accent);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Subplot moment */
+    .subplot-moment {
+      border-left: 2px solid var(--coral-border);
+      padding-left: 8px;
+      margin: 3px 0;
+    }
+
+    /* Footer */
+    .unit-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 4px;
+      margin-top: 10px;
+      font-size: 7pt;
+      color: var(--grey-300);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="unit-header">
+    <span class="unit-number">Unit 17 &middot; Phase 1</span>
+    <h1 class="unit-title">After the Storm</h1>
+    <p class="unit-subtitle">Documenting what went wrong</p>
+  </header>
+
+  <section>
+    <span class="reference-type-badge">Retrospective Notes</span>
+    <div class="reference-material">
+      <p style="text-align: center; font-weight: 700; font-size: 10pt; margin-bottom: 2px;">Post-Crash Retrospective &mdash; XR Demo Environment</p>
+      <p style="font-size: 8pt; color: var(--ink-light); text-align: center; margin-bottom: 6px;">Pulse Works &mdash; Facilitated by Ren &middot; Notes by Hina</p>
+
+      <h3>What Went Well</h3>
+      <ul>
+        <li>Tetsu identified and resolved the rendering pipeline failure within 3 hours</li>
+        <li>Team mobilized quickly despite it being a Friday evening</li>
+        <li>Client communication was handled promptly &mdash; Saki sent a status update to Director Kudo within 20 minutes of the crash</li>
+        <li>The Kanban board made it easy to see which tasks were blocked by the outage</li>
+      </ul>
+
+      <h3>What Didn&rsquo;t Go Well</h3>
+      <ul>
+        <li>Only Tetsu had the knowledge to diagnose the crash &mdash; <strong>single point of failure</strong></li>
+        <li>No rollback procedure existed for the demo environment</li>
+        <li>Three team members waited idle for 2.5 hours while Tetsu debugged</li>
+        <li>The crash was caused by an untested configuration change pushed without review</li>
+        <li>No monitoring or alerts were in place to detect the failure early</li>
+      </ul>
+
+      <h3>Action Items</h3>
+      <ul>
+        <li><strong>Tetsu:</strong> Document the rendering pipeline architecture by end of next sprint</li>
+        <li><strong>Ren:</strong> Establish a change review process for environment configurations</li>
+        <li><strong>Hina:</strong> Research monitoring tools and present options by Thursday</li>
+        <li><strong>Team:</strong> Schedule cross-training sessions on critical systems &mdash; starting next week</li>
+      </ul>
+
+      <div class="subplot-moment" style="margin-top: 6px;">
+        <p style="font-size: 8pt; color: var(--ink-light); font-style: italic;">
+          <s>Saki brought Ren coffee &mdash; he smiled for the first time all day.</s> [crossed out]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="term-card">
+      <div class="term-card-name">Retrospective</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A meeting held after a project phase or event to evaluate what went well and what didn't.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Structured agenda (what worked, what didn't, what to change); safe environment for honest feedback; documented outcomes; assigned follow-up actions.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> lessons learned, action item, process improvement</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The post-crash retro above follows a classic three-section format. Ren facilitated; Hina captured notes. The structured approach surfaced issues nobody had raised during the crisis itself.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Lessons Learned</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> Knowledge gained through project experience that can benefit future work.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Context of the experience; what was expected vs. what happened; insight gained; recommended future behavior.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> retrospective, root cause, continuous learning</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> "Only Tetsu could diagnose the crash" is not just a problem &mdash; it's a lesson learned about the danger of knowledge silos that should inform how the team structures future work.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Root Cause</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The fundamental reason for a problem or defect.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Distinguishing symptoms from causes; systematic investigation; may involve multiple contributing factors; leads to corrective action.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> lessons learned, process improvement, retrospective</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The surface problem was "the demo crashed." The root cause was an untested configuration change pushed without review &mdash; a process gap, not a technical fluke.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Process Improvement</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A deliberate effort to enhance efficiency or effectiveness of a process.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Identifying the current state; defining the desired state; implementing changes; measuring results.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> root cause, retrospective, continuous learning</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> Ren's action item &mdash; establishing a change review process for configurations &mdash; is a process improvement designed to prevent the same root cause from recurring.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Action Item</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A documented task assigned to a team member with a deadline.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Clear description; assigned owner; due date; success criteria; tracked to completion.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> retrospective, process improvement, lessons learned</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> "Hina: Research monitoring tools and present options by Thursday" is a well-formed action item &mdash; it names the owner, the task, and the deadline.</div>
+    </div>
+  </section>
+
+  <footer class="unit-footer">
+    <span>Project Doki Doki</span>
+    <span>Phase 1 &middot; Unit 17 / 100</span>
+  </footer>
+
+</body>
+</html>

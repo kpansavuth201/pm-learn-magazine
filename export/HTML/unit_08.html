@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Doki Doki — Unit 08: Time Is Money</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 15mm;
+    }
+
+    :root {
+      --accent-deep:    #1a3a5c;
+      --accent-accent:  #2a5a8c;
+      --accent-mid:     #4a7ab0;
+      --accent-soft:    #e8f0f8;
+      --accent-ghost:   #f2f6fa;
+      --accent-border:  #c8d8e8;
+
+      --coral-deep:     #c45a3c;
+      --coral-accent:   #d4745a;
+      --coral-soft:     #fdf0ec;
+      --coral-border:   #e8c4b8;
+
+      --ink:            #1a1a1a;
+      --ink-light:      #4a4a4a;
+      --rule:           #d0d0d0;
+      --page:           #ffffff;
+      --grey-100:       #f5f5f5;
+      --grey-200:       #e8e8e8;
+      --grey-300:       #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 118mm;
+      margin: 0 auto;
+      background: var(--page);
+    }
+
+    /* Header */
+    .unit-header {
+      border-bottom: 2px solid var(--accent-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .unit-number {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .unit-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 1px;
+    }
+    .unit-subtitle {
+      font-size: 8pt;
+      color: var(--ink-light);
+    }
+
+    /* Reference Material */
+    .reference-material {
+      font-family: 'Noto Serif', Georgia, 'Times New Roman', serif;
+      font-size: 9pt;
+      background: var(--grey-100);
+      border-left: 3px solid var(--accent-mid);
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+    .reference-type-badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      padding: 1px 8px;
+      border-radius: 3px;
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .reference-material h3 {
+      font-family: 'Noto Serif', Georgia, serif;
+      font-size: 9.5pt;
+      font-weight: 700;
+      margin: 6px 0 4px 0;
+      color: var(--ink);
+    }
+    .reference-material h4 {
+      font-family: 'Noto Serif', Georgia, serif;
+      font-size: 9pt;
+      font-weight: 700;
+      margin: 5px 0 2px 0;
+      color: var(--ink);
+    }
+    .reference-material p {
+      margin-bottom: 3px;
+    }
+    .reference-material ul {
+      margin: 2px 0 3px 16px;
+      padding: 0;
+    }
+    .reference-material li {
+      margin-bottom: 1px;
+    }
+
+    /* Key Concept Card */
+    .term-card {
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .term-card-name {
+      font-weight: 700;
+      color: var(--accent-deep);
+      font-size: 9pt;
+      border-bottom: 1px solid var(--accent-border);
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+    .term-card-row {
+      margin-bottom: 2px;
+    }
+    .term-card-label {
+      font-weight: 600;
+      color: var(--accent-accent);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Subplot moment */
+    .subplot-moment {
+      border-left: 2px solid var(--coral-border);
+      padding-left: 8px;
+      margin: 3px 0;
+    }
+
+    /* Footer */
+    .unit-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 4px;
+      margin-top: 10px;
+      font-size: 7pt;
+      color: var(--grey-300);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="unit-header">
+    <span class="unit-number">Unit 08 · Phase 1</span>
+    <h1 class="unit-title">Time Is Money</h1>
+    <p class="unit-subtitle">The schedule takes shape</p>
+  </header>
+
+  <section>
+    <span class="reference-type-badge">Scope Document</span>
+    <div class="reference-material">
+      <h3>XR Platform Scope Statement v1.0</h3>
+      <p><strong>Project:</strong> Kurosawa Digital XR Experience Platform<br>
+      <strong>Prepared by:</strong> Aoyama Ren (Pulse Works) &amp; Sakurai Saki (Kurosawa Digital)<br>
+      <strong>Version:</strong> 1.0 &nbsp;|&nbsp; <strong>Status:</strong> Baselined</p>
+
+      <h4>Project Description</h4>
+      <p>Design, develop, and deploy an immersive XR platform enabling Kurosawa Digital's enterprise clients to visualize products in augmented and virtual reality environments.</p>
+
+      <h4>In Scope</h4>
+      <ul>
+        <li>Core XR rendering engine (AR + VR modes)</li>
+        <li>Product catalog integration API</li>
+        <li>User analytics dashboard</li>
+        <li>Admin portal for content management</li>
+        <li>iOS and Android client applications</li>
+        <li>Pilot deployment with two enterprise clients</li>
+      </ul>
+
+      <h4>Out of Scope</h4>
+      <ul>
+        <li>Hardware procurement for end users</li>
+        <li>Third-party marketplace integrations</li>
+        <li>Multi-language localization (deferred to Phase 2)</li>
+        <li>Custom 3D asset creation (client-supplied)</li>
+      </ul>
+
+      <h4>Constraints</h4>
+      <p>Budget ceiling: &yen;48M. Target launch: 9 months from project start. Tetsu's rendering engine team is shared across three active projects. All <strong>deliverables</strong> require Kurosawa Digital sign-off before deployment.</p>
+
+      <h4>Assumptions</h4>
+      <p>Client-side hardware meets minimum XR specifications. Kurosawa Digital provides test accounts within 2 weeks of each sprint completion. Dedicated QA resources available from Month 3.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="term-card">
+      <div class="term-card-name">Schedule</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A model showing planned dates for project activities and milestones.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Start/end dates, activity sequencing, resource assignments, calendar constraints.</div>
+      <div class="term-card-row"><span class="term-card-label">Related Terms </span> <strong>milestone</strong>, <strong>deliverable</strong>, <strong>scope baseline</strong></div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> After reviewing the scope statement above, Ren and Tetsu must translate each in-scope item into dated activities — the resulting timeline becomes the project schedule.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Activity</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A distinct unit of work performed during the project.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Description, duration estimate, assigned resources, predecessor activities.</div>
+      <div class="term-card-row"><span class="term-card-label">Related Terms </span> <strong>work package</strong>, <strong>milestone</strong>, dependency</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> "Build product catalog API" is a single activity within the XR platform WBS — it has a clear start, end, and output.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Dependency</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A logical relationship between two activities.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Finish-to-start (most common), start-to-start, finish-to-finish, start-to-finish.</div>
+      <div class="term-card-row"><span class="term-card-label">Related Terms </span> <strong>WBS</strong>, activity, lead time</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The admin portal can't begin integration testing until the catalog API is complete — a finish-to-start dependency.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Lead Time</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The amount of time a successor activity can be advanced.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Expressed as a negative value (e.g., FS −2 days), applied to overlapping activities.</div>
+      <div class="term-card-row"><span class="term-card-label">Related Terms </span> dependency, lag time, <strong>schedule</strong></div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> Tetsu can start the VR rendering module 3 days before the AR module is finalized, since the shared engine code is already stable — that overlap is lead time.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Lag Time</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The amount of time a successor activity is delayed.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Expressed as a positive value (e.g., FS +5 days), represents mandatory waiting periods.</div>
+      <div class="term-card-row"><span class="term-card-label">Related Terms </span> dependency, lead time, <strong>schedule</strong></div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> After the pilot deployment, there's a 5-day lag before user feedback collection can start — the client needs time to configure their test environment.</div>
+    </div>
+  </section>
+
+  <div class="subplot-moment" style="margin-top: 6px; font-size: 8.5pt; color: var(--ink-light); font-style: italic;">
+    While reviewing the scope statement's constraints section, Tetsu mentioned — almost as an aside — that the rendering engine team is shared across three active projects. Ren nodded and moved on to the next line item. He would remember this moment later.
+  </div>
+
+  <footer class="unit-footer">
+    <span>Project Doki Doki</span>
+    <span>Phase 1 · Unit 08 / 100</span>
+  </footer>
+
+</body>
+</html>

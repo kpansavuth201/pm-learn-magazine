@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Doki Doki — Unit 05: Reading the Room</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 15mm;
+    }
+
+    :root {
+      --accent-deep:    #1a3a5c;
+      --accent-accent:  #2a5a8c;
+      --accent-mid:     #4a7ab0;
+      --accent-soft:    #e8f0f8;
+      --accent-ghost:   #f2f6fa;
+      --accent-border:  #c8d8e8;
+
+      --coral-deep:     #c45a3c;
+      --coral-accent:   #d4745a;
+      --coral-soft:     #fdf0ec;
+      --coral-border:   #e8c4b8;
+
+      --ink:            #1a1a1a;
+      --ink-light:      #4a4a4a;
+      --rule:           #d0d0d0;
+      --page:           #ffffff;
+      --grey-100:       #f5f5f5;
+      --grey-200:       #e8e8e8;
+      --grey-300:       #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 118mm;
+      margin: 0 auto;
+      background: var(--page);
+    }
+
+    /* Header */
+    .unit-header {
+      border-bottom: 2px solid var(--accent-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .unit-number {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .unit-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 1px;
+    }
+    .unit-subtitle {
+      font-size: 8pt;
+      color: var(--ink-light);
+    }
+
+    /* Reference Material */
+    .reference-material {
+      font-family: 'Noto Serif', Georgia, 'Times New Roman', serif;
+      font-size: 9pt;
+      background: var(--grey-100);
+      border-left: 3px solid var(--accent-mid);
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+    .reference-type-badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      padding: 1px 8px;
+      border-radius: 3px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .reference-material p {
+      margin-bottom: 4px;
+    }
+    .reference-material .email-field {
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+    .reference-material .email-field strong {
+      color: var(--accent-deep);
+    }
+    .reference-material .email-body {
+      margin-top: 6px;
+      border-top: 1px solid var(--grey-200);
+      padding-top: 6px;
+    }
+
+    /* Key Concept Card (Term Card) */
+    .term-card {
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .term-card-name {
+      font-weight: 700;
+      color: var(--accent-deep);
+      font-size: 9pt;
+      border-bottom: 1px solid var(--accent-border);
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+    .term-card-row {
+      margin-bottom: 2px;
+    }
+    .term-card-label {
+      font-weight: 600;
+      color: var(--accent-accent);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Subplot moment */
+    .subplot-moment {
+      border-left: 2px solid var(--coral-border);
+      padding-left: 8px;
+      margin: 4px 0;
+    }
+
+    /* Persona tags */
+    .speaker-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-right: 4px;
+    }
+    .persona-ren  { background: #e3ecf5; color: #1a3a5c; }
+    .persona-hina { background: #f0e8f5; color: #4a2a5c; }
+
+    /* Footer */
+    .unit-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 4px;
+      margin-top: 10px;
+      font-size: 7pt;
+      color: var(--grey-300);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="unit-header">
+    <span class="unit-number">Unit 05 · Phase 1</span>
+    <h1 class="unit-title">Reading the Room</h1>
+    <p class="unit-subtitle">A stakeholder map takes shape</p>
+  </header>
+
+  <section class="reference-material">
+    <div class="reference-type-badge">Stakeholder Email</div>
+    <p class="email-field"><strong>From:</strong> Kudo Takeshi (Director, Digital Transformation) &lt;t.kudo@kurosawa-digital.co.jp&gt;</p>
+    <p class="email-field"><strong>To:</strong> Sakurai Saki; Aoyama Ren</p>
+    <p class="email-field"><strong>Cc:</strong> Yamamoto Reiko (VP, Product Strategy)</p>
+    <p class="email-field"><strong>Subject:</strong> RE: XR Platform — A Few Thoughts for Next Steps</p>
+    <div class="email-body">
+      <p>Saki, Ren —</p>
+      <p>Enjoyed the kickoff recap. A few suggestions from the leadership side. Nothing major — just things I'd like the team to consider as we move forward:</p>
+      <p>1. VP Yamamoto's team has expressed interest in using the XR platform for their retail pilot. I've told them we'd explore it. Can we scope that into the current plan?</p>
+      <p>2. The board presentation in Q3 will need a live demo. Let's make sure the timeline reflects that. I trust you'll figure out the details.</p>
+      <p>3. One more thing — my assistant Noda-san will need view access to all project documentation. She manages my calendar and handles stakeholder briefings on my behalf.</p>
+      <p>Looking forward to great things.</p>
+      <p>— Kudo</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="subplot-moment" style="font-size: 8.5pt; color: var(--ink-light); margin-bottom: 6px; font-style: italic;">
+      <span class="speaker-tag persona-hina">Hina (陽菜)</span> "Um, Ren? Can I ask something? At the kickoff — why was Sakurai-san so… formal with you? Like, extra formal. Even for her."
+      <br>
+      <span class="speaker-tag persona-ren" style="margin-top: 2px;">Ren (蓮)</span> "That's just how she is. Hey, have you started on that stakeholder list yet?"
+    </div>
+  </section>
+
+  <section class="term-card">
+    <div class="term-card-name">Stakeholder Register</div>
+    <div class="term-card-row"><span class="term-card-label">Definition </span> A document listing all identified <strong>stakeholders</strong> and their attributes — roles, interests, expectations, and potential impact on the project.</div>
+    <div class="term-card-row"><span class="term-card-label">Components </span> Stakeholder name &amp; role · Contact information · Assessment of interest and influence · Classification category · Engagement strategy</div>
+    <div class="term-card-row"><span class="term-card-label">Related Terms </span> stakeholder, sponsor, project manager</div>
+    <div class="term-card-row"><span class="term-card-label">Example </span> Hina starts building the register after the kickoff. Director Kudo's email reveals hidden stakeholders — VP Yamamoto, Noda-san — who weren't on the original list. Each one needs to be captured with their level of interest and authority.</div>
+  </section>
+
+  <section class="term-card">
+    <div class="term-card-name">Power/Interest Grid</div>
+    <div class="term-card-row"><span class="term-card-label">Definition </span> A tool classifying <strong>stakeholders</strong> by their authority (power) and their concern (interest) in the project, producing four quadrants of engagement strategy.</div>
+    <div class="term-card-row"><span class="term-card-label">Components </span> High power / high interest → Manage closely · High power / low interest → Keep satisfied · Low power / high interest → Keep informed · Low power / low interest → Monitor</div>
+    <div class="term-card-row"><span class="term-card-label">Related Terms </span> stakeholder, stakeholder register, engagement level</div>
+    <div class="term-card-row"><span class="term-card-label">Example </span> Director Kudo sits squarely in "high power / high interest" — he controls budget and actively shapes scope. VP Yamamoto is "high power / low interest" (for now), but that could shift if the retail pilot gains traction.</div>
+  </section>
+
+  <section class="term-card">
+    <div class="term-card-name">Engagement Level</div>
+    <div class="term-card-row"><span class="term-card-label">Definition </span> The degree to which a <strong>stakeholder</strong> is involved in the project — ranging from unaware to resistant, neutral, supportive, or leading.</div>
+    <div class="term-card-row"><span class="term-card-label">Components </span> Current engagement level · Desired engagement level · Gap analysis · Engagement actions</div>
+    <div class="term-card-row"><span class="term-card-label">Related Terms </span> stakeholder register, power/interest grid, influence</div>
+    <div class="term-card-row"><span class="term-card-label">Example </span> Director Kudo's engagement level is "leading" — he's actively steering the project. Noda-san is "unaware" until she receives documentation access. The team needs to move her to at least "supportive."</div>
+  </section>
+
+  <section class="term-card">
+    <div class="term-card-name">Influence</div>
+    <div class="term-card-row"><span class="term-card-label">Definition </span> The ability of a <strong>stakeholder</strong> to affect project decisions, direction, or outcomes — whether through formal authority or informal relationships.</div>
+    <div class="term-card-row"><span class="term-card-label">Components </span> Formal authority (role-based) · Informal authority (relationship-based) · Direct vs. indirect influence · Influence trajectory over time</div>
+    <div class="term-card-row"><span class="term-card-label">Related Terms </span> stakeholder, sponsor, power/interest grid</div>
+    <div class="term-card-row"><span class="term-card-label">Example </span> Noda-san has low formal authority but high indirect influence — she controls Director Kudo's calendar and briefings. Overlooking her could mean losing access to the <strong>sponsor</strong>.</div>
+  </section>
+
+  <section class="term-card">
+    <div class="term-card-name">Requirements</div>
+    <div class="term-card-row"><span class="term-card-label">Definition </span> Conditions or capabilities needed by a <strong>stakeholder</strong> — what the project must deliver, achieve, or enable to be considered successful.</div>
+    <div class="term-card-row"><span class="term-card-label">Components </span> Business requirements · Stakeholder requirements · Functional requirements · Non-functional requirements</div>
+    <div class="term-card-row"><span class="term-card-label">Related Terms </span> stakeholder register, deliverable, scope</div>
+    <div class="term-card-row"><span class="term-card-label">Example </span> Director Kudo's email introduces new requirements: retail pilot compatibility and a live board demo. Each must be captured, assessed for feasibility, and traced back to the stakeholder who requested it.</div>
+  </section>
+
+  <footer class="unit-footer">
+    <span>Project Doki Doki</span>
+    <span>Phase 1 · Unit 05 / 100</span>
+  </footer>
+
+</body>
+</html>

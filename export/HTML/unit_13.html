@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Doki Doki — Unit 13: The Flow Problem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 15mm;
+    }
+
+    :root {
+      --accent-deep:    #1a3a5c;
+      --accent-accent:  #2a5a8c;
+      --accent-mid:     #4a7ab0;
+      --accent-soft:    #e8f0f8;
+      --accent-ghost:   #f2f6fa;
+      --accent-border:  #c8d8e8;
+
+      --coral-deep:     #c45a3c;
+      --coral-accent:   #d4745a;
+      --coral-soft:     #fdf0ec;
+      --coral-border:   #e8c4b8;
+
+      --ink:            #1a1a1a;
+      --ink-light:      #4a4a4a;
+      --rule:           #d0d0d0;
+      --page:           #ffffff;
+      --grey-100:       #f5f5f5;
+      --grey-200:       #e8e8e8;
+      --grey-300:       #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 118mm;
+      margin: 0 auto;
+      background: var(--page);
+    }
+
+    /* Header */
+    .unit-header {
+      border-bottom: 2px solid var(--accent-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .unit-number {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .unit-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 1px;
+    }
+    .unit-subtitle {
+      font-size: 8pt;
+      color: var(--ink-light);
+    }
+
+    /* Scenario */
+    .scenario {
+      margin-bottom: 8px;
+    }
+    .scene-setting {
+      font-style: italic;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .dialogue-line {
+      margin-bottom: 3px;
+      line-height: 1.5;
+    }
+    .speaker-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-right: 4px;
+    }
+    .persona-ren    { background: #e3ecf5; color: #1a3a5c; }
+    .persona-saki   { background: #fdf0ec; color: #8c3a2a; }
+    .persona-tetsu  { background: #e8f5e8; color: #2a5c2a; }
+    .persona-kudo   { background: #f5f0e8; color: #5c4a1a; }
+    .persona-hina   { background: #f0e8f5; color: #4a2a5c; }
+
+    .annotation {
+      font-size: 8pt;
+      color: var(--ink-light);
+      padding-left: 16px;
+      margin-bottom: 5px;
+      border-left: 2px solid var(--accent-border);
+      line-height: 1.4;
+    }
+
+    /* Concept Discovery Box */
+    .concept-box {
+      background: var(--accent-ghost);
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-top: 8px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .concept-box-title {
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 5px;
+      font-size: 9pt;
+    }
+    .concept-point {
+      margin-bottom: 5px;
+      padding-left: 24px;
+      position: relative;
+    }
+    .concept-num {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: var(--accent-accent);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 7pt;
+      line-height: 16px;
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+      top: 1px;
+    }
+    .concept-point strong {
+      color: var(--accent-deep);
+    }
+    .concept-tip {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent-accent);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 7.5pt;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Subplot moment */
+    .subplot-moment {
+      border-left: 2px solid var(--coral-border);
+      padding-left: 8px;
+      margin: 3px 0;
+    }
+
+    /* Footer */
+    .unit-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 4px;
+      margin-top: 10px;
+      font-size: 7pt;
+      color: var(--grey-300);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="unit-header">
+    <span class="unit-number">Unit 13 &middot; Phase 1</span>
+    <h1 class="unit-title">The Flow Problem</h1>
+    <p class="unit-subtitle">Why everything feels stuck</p>
+  </header>
+
+  <section class="scenario">
+
+    <p class="scene-setting">
+      Pulse Works office, Wednesday morning. The team's task board shows seven items stuck in "In Progress." Nothing has moved to "Done" in four days. Ren stares at it. Tetsu is on a call at his desk. Saki arrives for a cross-team sync and immediately notices the board.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "I don't get it. Everyone's busy. The <strong>schedule</strong> says we should have three <strong>deliverables</strong> finished this week. But nothing's actually done."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "Being busy isn't the same as making progress. Look at your board &mdash; everything is in progress, nothing is flowing through. You have a <strong>flow</strong> (the movement of work through a system from start to finish) problem."
+    </p>
+    <p class="annotation">
+      &rarr; <em>Flow</em> is the First Way in <em>The Phoenix Project</em>: work should move smoothly from left to right, from idea to delivery. When everything is "in progress" but nothing finishes, the system is clogged.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "But we've got the right <strong>activities</strong> assigned to the right people. The plan looks fine on paper."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-tetsu">Tetsu (哲)</span>
+      "Paper doesn't show wait states. I finished the spatial mapping module two days ago. It's waiting for my code review. I'm the only reviewer. I'm also building the gesture engine and debugging the CRM integration."
+    </p>
+    <p class="annotation">
+      &rarr; Tetsu is describing a bottleneck: three workstreams depend on one person. No matter how fast the rest of the team works, the system's throughput is limited by Tetsu's capacity.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "So the problem isn't that people are slow. It's that work is piling up in front of you."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-tetsu">Tetsu (哲)</span>
+      "I didn't say that."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "You didn't have to. The board says it for you."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "There's a concept for this. <em>The Three Ways</em> &mdash; it's a framework from a book called <em>The Phoenix Project</em>. The First Way is about <strong>flow</strong>: making work move smoothly from left to right. The Second Way is about <strong>feedback</strong> (creating short loops so problems are caught early and information flows back upstream). The Third Way is about <strong>learning</strong> (building a culture of experimentation and continuous improvement, where failure is a teacher, not a punishment)."
+    </p>
+    <p class="annotation">
+      &rarr; <em>The Three Ways</em> provide a systems-level view: optimize flow, amplify feedback, and foster continuous learning. They complement PMBOK's process-oriented approach with a focus on how work actually moves.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "So right now we're failing at the First Way. Work goes in but doesn't come out. What do we do about it?"
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "Start by making the bottleneck visible. Then limit how much new work enters the system until existing work flows through. And create <strong>feedback</strong> loops so you see blockages as they form, not after they've caused delays."
+    </p>
+    <p class="annotation">
+      &rarr; Saki is prescribing the first steps: visualize the constraint, limit work in progress, and establish rapid feedback. These build on <em>schedule management</em> and <em>resource planning</em> from prior units.
+    </p>
+
+    <div class="subplot-moment">
+      <p class="dialogue-line">
+        <span class="speaker-tag persona-ren">Ren (蓮)</span>
+        "Where did you learn about The Three Ways? That's not exactly standard PMBOK."
+      </p>
+      <p class="dialogue-line">
+        <span class="speaker-tag persona-saki">Saki (咲希)</span>
+        "I read widely." She paused, then reached into her bag. A slightly worn paperback. <em>The Phoenix Project.</em> "You might find it useful."
+      </p>
+      <p class="scene-setting" style="margin-top: 2px; margin-bottom: 0;">
+        She handed it over without making eye contact. Ren noticed a page was dog-eared &mdash; Chapter 31, about The Three Ways. She'd been thinking about his project before she arrived.
+      </p>
+    </div>
+
+  </section>
+
+  <section class="concept-box">
+    <div class="concept-box-title">Concept Discovery &mdash; The Three Ways</div>
+
+    <div class="concept-point">
+      <span class="concept-num">1</span>
+      <strong>The First Way: Flow.</strong> When Ren looked at the board and saw seven items stuck in "In Progress," he was seeing a flow failure. The First Way says: optimize the movement of work from left to right &mdash; from concept to completion. Work piling up in front of Tetsu isn't a people problem; it's a system problem. The <strong>schedule</strong> showed tasks assigned and sequenced, but it couldn't show that three <strong>dependency</strong> chains converged on one person. Flow thinking asks: where does work wait? What causes the wait? How do we remove the wait &mdash; not by making Tetsu faster, but by changing how work moves through the system?
+      <br>
+      <span class="concept-tip">Tip</span> If your "In Progress" column is always full but "Done" is empty, you don't have a speed problem &mdash; you have a flow problem. Start by counting how many items are waiting versus how many are actively being worked on.
+    </div>
+
+    <div class="concept-point">
+      <span class="concept-num">2</span>
+      <strong>The Second and Third Ways: Feedback and Learning.</strong> Saki's suggestion to "create feedback loops so you see blockages as they form" is the Second Way in action. Without <strong>feedback</strong>, Ren didn't know Tetsu's code review queue was growing until four days had passed. The Third Way &mdash; <strong>learning</strong> &mdash; means treating each flow failure as an experiment: what caused it, what can we change, and how do we verify the change worked? This connects directly to <em>resource planning</em>: if the team had reviewed Tetsu's allocation weekly (feedback) and adjusted assignments based on what they learned (learning), the blockage might never have formed.
+      <br>
+      <span class="concept-tip">Phoenix Project Connection</span> In <em>The Phoenix Project</em>, the protagonists discover that most delivery delays aren't caused by slow workers but by invisible queues, unmanaged handoffs, and the absence of feedback. The Three Ways provide the mental model to see &mdash; and fix &mdash; the system.
+    </div>
+  </section>
+
+  <footer class="unit-footer">
+    <span>Project Doki Doki</span>
+    <span>Phase 1 &middot; Unit 13 / 100</span>
+  </footer>
+
+</body>
+</html>

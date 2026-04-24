@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Doki Doki — Unit 02: The Project Bible</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 15mm;
+    }
+
+    :root {
+      --accent-deep:    #1a3a5c;
+      --accent-accent:  #2a5a8c;
+      --accent-mid:     #4a7ab0;
+      --accent-soft:    #e8f0f8;
+      --accent-ghost:   #f2f6fa;
+      --accent-border:  #c8d8e8;
+
+      --coral-deep:     #c45a3c;
+      --coral-accent:   #d4745a;
+      --coral-soft:     #fdf0ec;
+      --coral-border:   #e8c4b8;
+
+      --ink:            #1a1a1a;
+      --ink-light:      #4a4a4a;
+      --rule:           #d0d0d0;
+      --page:           #ffffff;
+      --grey-100:       #f5f5f5;
+      --grey-200:       #e8e8e8;
+      --grey-300:       #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 118mm;
+      margin: 0 auto;
+      background: var(--page);
+    }
+
+    /* Header */
+    .unit-header {
+      border-bottom: 2px solid var(--accent-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .unit-number {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .unit-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 1px;
+    }
+    .unit-subtitle {
+      font-size: 8pt;
+      color: var(--ink-light);
+    }
+
+    /* Persona tags */
+    .speaker-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-right: 4px;
+    }
+    .persona-ren  { background: #e3ecf5; color: #1a3a5c; }
+    .persona-hina { background: #f0e8f5; color: #4a2a5c; }
+
+    /* Reference Material */
+    .reference-material {
+      font-family: 'Noto Serif', Georgia, 'Times New Roman', serif;
+      font-size: 9pt;
+      background: var(--grey-100);
+      border-left: 3px solid var(--accent-mid);
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+    .reference-type-badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      padding: 1px 8px;
+      border-radius: 3px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .reference-material h3 {
+      font-size: 9.5pt;
+      font-weight: 700;
+      margin: 6px 0 3px 0;
+      color: var(--ink);
+    }
+    .reference-material h3:first-of-type {
+      margin-top: 4px;
+    }
+    .reference-material p {
+      margin-bottom: 3px;
+    }
+    .reference-material ul {
+      margin: 2px 0 3px 16px;
+      padding: 0;
+    }
+    .reference-material li {
+      margin-bottom: 1px;
+    }
+
+    /* Key Concept Card */
+    .term-card {
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .term-card-name {
+      font-weight: 700;
+      color: var(--accent-deep);
+      font-size: 9pt;
+      border-bottom: 1px solid var(--accent-border);
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+    .term-card-row {
+      margin-bottom: 2px;
+    }
+    .term-card-label {
+      font-weight: 600;
+      color: var(--accent-accent);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Subplot moment */
+    .subplot-moment {
+      border-left: 2px solid var(--coral-border);
+      padding-left: 8px;
+      margin: 3px 0;
+    }
+
+    /* Footer */
+    .unit-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 4px;
+      margin-top: 10px;
+      font-size: 7pt;
+      color: var(--grey-300);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="unit-header">
+    <span class="unit-number">Unit 02 · Phase 1</span>
+    <h1 class="unit-title">The Project Bible</h1>
+    <p class="unit-subtitle">What a charter really says</p>
+  </header>
+
+  <section>
+    <span class="reference-type-badge">Project Charter</span>
+    <div class="reference-material">
+      <p style="text-align: center; font-weight: 700; font-size: 10pt; margin-bottom: 6px;">XR Platform Project Charter</p>
+      <p style="font-size: 8pt; color: var(--ink-light); text-align: center; margin-bottom: 6px;">Kurosawa Digital &times; Pulse Works &mdash; Confidential</p>
+
+      <h3>Purpose</h3>
+      <p>This charter authorizes the development of an immersive XR platform for Kurosawa Digital's enterprise clients. The <strong>project</strong> will create a cross-device experience bridging physical retail spaces with digital product interaction.</p>
+
+      <h3>Objectives</h3>
+      <ul>
+        <li>Deliver a functional XR prototype within 6 months</li>
+        <li>Achieve a user-satisfaction score above 80% in acceptance testing</li>
+        <li>Integrate with Kurosawa Digital's existing CRM and analytics stack</li>
+      </ul>
+
+      <h3>Scope</h3>
+      <p>The platform will include spatial mapping, gesture recognition, and a content management layer. Mobile AR and desktop VR are in scope. Hardware procurement is out of scope.</p>
+
+      <h3>Key <strong>Milestones</strong></h3>
+      <ul>
+        <li><strong>Kickoff</strong> meeting &mdash; Week 1</li>
+        <li>Requirements sign-off &mdash; Week 4</li>
+        <li>Prototype <strong>deliverable</strong> &mdash; Week 12</li>
+        <li>User acceptance testing &mdash; Week 20</li>
+        <li>Go-live &mdash; Week 24</li>
+      </ul>
+
+      <h3>Stakeholders</h3>
+      <p>Executive sponsor: Director Kudo (Kurosawa Digital). Project managers: Sakurai Saki (Kurosawa Digital), Aoyama Ren (Pulse Works). Technical lead: Tetsu (Pulse Works).</p>
+
+      <h3>Constraints</h3>
+      <p>Budget ceiling: &yen;48M. The first <strong>phase</strong> must demonstrate ROI to the board before Phase 2 funding is released. All deliverables must pass Kurosawa Digital's security review.</p>
+    </div>
+  </section>
+
+  <div class="subplot-moment">
+    <p style="font-style: italic; color: var(--ink-light); font-size: 8.5pt;">
+      <span class="speaker-tag persona-hina">Hina (陽菜)</span>
+      "Ren, look at this! It says we have five milestones — five! And the budget is forty-eight million yen. This is real, isn't it?" She reads every line aloud, tracing the text with her finger.
+    </p>
+    <p style="font-style: italic; color: var(--ink-light); font-size: 8.5pt; margin-top: 2px;">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      skims to the constraints section, hunting for the budget number. He'll read the rest later. Probably.
+    </p>
+  </div>
+
+  <section>
+    <div class="term-card">
+      <div class="term-card-name">Project</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A temporary endeavor to create a unique product or result.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Defined start and end dates; unique output; progressive elaboration; consumes resources.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> phase, deliverable, milestone</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The XR platform build for Kurosawa Digital is a project — it has a 24-week timeline, a &yen;48M budget, and a specific outcome (a working XR platform).</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Phase</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A distinct stage in the project lifecycle with defined objectives.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Entry criteria; defined work; exit criteria (phase gate); deliverables produced.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> project, milestone, deliverable</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The charter's constraint section mentions that Phase 1 must demonstrate ROI before Phase 2 funding is released — each phase has its own approval gate.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Deliverable</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A tangible or intangible output produced during the project.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Acceptance criteria; assigned owner; traceability to scope; verification method.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> milestone, phase, project</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The Week 12 prototype is a deliverable — it's a tangible output the team must produce and the client must accept.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Milestone</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A significant point or event in the project timeline.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Zero duration; marks completion of key work; often tied to phase gates; used for progress tracking.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> deliverable, phase, kickoff</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> "Requirements sign-off — Week 4" is a milestone: it has no duration of its own but marks the moment when requirements are formally approved.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Kickoff</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The initial meeting to formally start a project.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Stakeholder introductions; project overview; roles and responsibilities; communication plan; next steps.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> project, milestone, phase</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The charter lists the kickoff meeting as the very first milestone (Week 1) — the formal signal that the XR platform project has begun.</div>
+    </div>
+  </section>
+
+  <footer class="unit-footer">
+    <span>Project Doki Doki</span>
+    <span>Phase 1 · Unit 02 / 100</span>
+  </footer>
+
+</body>
+</html>

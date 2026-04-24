@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Doki Doki — Unit 01: การพบกันครั้งแรก</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 15mm;
+    }
+
+    :root {
+      --accent-deep:    #1a3a5c;
+      --accent-accent:  #2a5a8c;
+      --accent-mid:     #4a7ab0;
+      --accent-soft:    #e8f0f8;
+      --accent-ghost:   #f2f6fa;
+      --accent-border:  #c8d8e8;
+
+      --coral-deep:     #c45a3c;
+      --coral-accent:   #d4745a;
+      --coral-soft:     #fdf0ec;
+      --coral-border:   #e8c4b8;
+
+      --ink:            #1a1a1a;
+      --ink-light:      #4a4a4a;
+      --rule:           #d0d0d0;
+      --page:           #ffffff;
+      --grey-100:       #f5f5f5;
+      --grey-200:       #e8e8e8;
+      --grey-300:       #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans Thai', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.6;
+      color: var(--ink);
+      max-width: 118mm;
+      margin: 0 auto;
+      background: var(--page);
+    }
+
+    /* Header */
+    .unit-header {
+      border-bottom: 2px solid var(--accent-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .unit-number {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .unit-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 1px;
+    }
+    .unit-subtitle {
+      font-size: 8pt;
+      color: var(--ink-light);
+    }
+
+    /* Scenario */
+    .scenario {
+      margin-bottom: 8px;
+    }
+    .scene-setting {
+      font-style: italic;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.6;
+    }
+    .dialogue-line {
+      margin-bottom: 3px;
+      line-height: 1.6;
+    }
+    .speaker-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-right: 4px;
+    }
+    .persona-ren  { background: #e3ecf5; color: #1a3a5c; }
+    .persona-saki { background: #fdf0ec; color: #8c3a2a; }
+
+    .annotation {
+      font-size: 8pt;
+      color: var(--ink-light);
+      padding-left: 16px;
+      margin-bottom: 5px;
+      border-left: 2px solid var(--accent-border);
+      line-height: 1.55;
+    }
+
+    /* Concept Discovery Box */
+    .concept-box {
+      background: var(--accent-ghost);
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-top: 8px;
+      font-size: 8.5pt;
+      line-height: 1.6;
+    }
+    .concept-box-title {
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 5px;
+      font-size: 9pt;
+    }
+    .concept-point {
+      margin-bottom: 5px;
+      padding-left: 24px;
+      position: relative;
+    }
+    .concept-num {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: var(--accent-accent);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 7pt;
+      line-height: 16px;
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+      top: 1px;
+    }
+    .concept-point strong {
+      color: var(--accent-deep);
+    }
+    .concept-tip {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent-accent);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 7.5pt;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Subplot moment */
+    .subplot-moment {
+      border-left: 2px solid var(--coral-border);
+      padding-left: 8px;
+      margin: 3px 0;
+    }
+
+    /* Footer */
+    .unit-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 4px;
+      margin-top: 10px;
+      font-size: 7pt;
+      color: var(--grey-300);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="unit-header">
+    <span class="unit-number">Unit 01 · Phase 1</span>
+    <h1 class="unit-title">การพบกันครั้งแรก</h1>
+    <p class="unit-subtitle">เรนพบลูกค้าใหม่ — และ PM ของเธอ</p>
+  </header>
+
+  <section class="scenario">
+
+    <p class="scene-setting">
+      สำนักงานใหญ่ Kurosawa Digital ชั้น 23 เรนแต่งปกเสื้อดูในกระจกลิฟต์ portfolio ของเขาอยู่ในแท็บเล็ต ส่วน project plan ส่วนใหญ่อยู่ในหัว พนักงานต้อนรับพาเขาไปยังห้องประชุมผนังกระจก ซึ่งผู้หญิงในเบลเซอร์ผ้าเรียบกำลังจัดเรียงเอกสารพิมพ์เป็นกองๆ อย่างเป็นระเบียบ
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "ยินดีต้อนรับสู่ Kurosawa Digital ดิฉันชื่อ Sakurai Saki เป็น project manager ที่ได้รับมอบหมายให้ดูแล XR platform initiative คุณมาจาก Pulse Works ใช่ไหมคะ"
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "ใช่ครับ Aoyama Ren ขอบคุณที่ต้อนรับพวกเรา — หรือจะพูดให้ถูก ต้อนรับผม ทีมที่เหลือฝากความคิดถึงมาด้วยครับ"
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "เริ่มกันเลยดีกว่าค่ะ ดิฉันได้เตรียม overview ของ <strong>project lifecycle</strong> ที่เราจะใช้ — ห้า phase ตั้งแต่ initiation จนถึง closing หวังว่าคุณนำ project charter มาด้วยนะคะ"
+    </p>
+    <p class="annotation">
+      → <em>project lifecycle</em> คือชุดของ phase ที่โครงการผ่านตั้งแต่ต้นจนจบ Saki กำลังอ้างอิง five phases มาตรฐาน ได้แก่ Initiating, Planning, Executing, Monitoring &amp; Controlling และ Closing
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "Charter เหรอครับ? ผมมีอะไรที่ดีกว่า — demo reel ผลงาน XR ของเรา ลูกค้าส่วนใหญ่ชอบดูว่าเราสร้างอะไรได้จริงบ้างครับ"
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "ผลงานน่าประทับใจค่ะ แต่ demo reel ไม่ใช่ governance document ก่อนที่เราจะพูดถึง capabilities ดิฉันต้องเข้าใจว่าคุณจัดโครงสร้าง <strong>project phases</strong> อย่างไร คุณรับมือกับการเปลี่ยนผ่านจาก <strong>initiating</strong> ไปยัง <strong>planning</strong> อย่างไรคะ"
+    </p>
+    <p class="annotation">
+      → <em>Project phases</em> คือช่วงที่แตกต่างกันซึ่งมี deliverables ที่กำหนดไว้ การเปลี่ยนผ่านระหว่าง phase — เรียกว่า <em>phase gate</em> — คือจุดที่ทีมตัดสินใจอย่างเป็นทางการว่าจะดำเนินต่อหรือไม่ Saki กำลังทดสอบว่า Ren ใช้แนวทางที่มีโครงสร้างหรือไม่
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "พูดตรงๆ เลยนะครับ? เราส่วนใหญ่กระโดดจาก 'ลูกค้าตอบตกลง' ไปลงมือสร้างเลย เราเป็น studio เล็กๆ — เคลื่อนตัวเร็วครับ"
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "การเคลื่อนตัวเร็วโดยไม่มีแผนไม่ใช่ความเร็วค่ะ มันคือการล่องลอย ที่ Kurosawa Digital เราไม่เริ่ม <strong>execution</strong> จนกว่า planning deliverables จะได้รับการอนุมัติอย่างเป็นทางการ"
+    </p>
+    <p class="annotation">
+      → <em>execution phase</em> คือช่วงที่นำ project plan ไปปฏิบัติและสร้าง deliverables ประเด็นของ Saki คือ การข้าม planning phase ไม่ได้ประหยัดเวลา — แต่สร้าง risk ที่ควบคุมไม่ได้
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "เข้าใจครับ แต่บางครั้งงานที่ดีที่สุดของเราเกิดจากการคิดแก้ปัญหาระหว่างทาง โครงสร้างก็ทำให้ช้าลงได้เหมือนกันนะครับ"
+    </p>
+
+    <div class="subplot-moment">
+      <p class="dialogue-line">
+        <span class="speaker-tag persona-saki">Saki (咲希)</span>
+        "งั้นคงต้องหาสมดุลกัน ดิฉันอยากดูว่า Pulse Works ดำเนินงานภายใต้… governance อย่างไรค่ะ"
+      </p>
+    </div>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "และผมก็อยากดูว่าเอกสารพิมพ์ทั้งหมดนั้นจะตามทันเราได้ไหมครับ"
+    </p>
+    <p class="annotation">
+      → ความตึงเครียดระหว่าง agile instincts ของ Ren และแนวทางที่มีโครงสร้างของ Saki จะเป็น theme ที่เกิดซ้ำ ทั้งสองมุมมองต่างมีคุณค่า — PM ที่มีประสิทธิภาพมักหมายถึงการรู้ว่าควรใช้แนวทางใดเมื่อใด
+    </p>
+
+    <div class="subplot-moment">
+      <p class="scene-setting" style="margin-top: 4px; margin-bottom: 0;">
+        Saki เกือบยิ้ม เกือบ เรนสังเกตเห็น
+      </p>
+    </div>
+
+  </section>
+
+  <section class="concept-box">
+    <div class="concept-box-title">Concept Discovery — Project Lifecycle &amp; Phases</div>
+
+    <div class="concept-point">
+      <span class="concept-num">1</span>
+      <strong>The Five Process Groups.</strong> เมื่อ Saki กล่าวถึง "five phases ตั้งแต่ initiation จนถึง closing" เธอกำลังอ้างอิง five process groups ของ PMBOK ได้แก่ <strong>Initiating</strong> (กำหนดโครงการและขอ authorization), <strong>Planning</strong> (กำหนด scope, schedule และ cost), <strong>Executing</strong> (ดำเนินตามแผน), <strong>Monitoring &amp; Controlling</strong> (ติดตามความคืบหน้าและจัดการการเปลี่ยนแปลง) และ <strong>Closing</strong> (การสรุปและส่งมอบอย่างเป็นทางการ) สิ่งเหล่านี้ไม่ได้เรียงลำดับอย่างเคร่งครัด — monitoring เกิดขึ้นตลอด — แต่เป็นกระดูกสันหลังของ structured project management
+      <br>
+      <span class="concept-tip">Tip</span> แม้ทีมเล็กๆ ก็ได้ประโยชน์จากการผ่านทั้งห้า group ไม่จำเป็นต้องมีเอกสารมาก — แต่ต้องมีการเปลี่ยนผ่านที่มีสติ
+    </div>
+
+    <div class="concept-point">
+      <span class="concept-num">2</span>
+      <strong>Phase Gates: The Decision Points.</strong> คำถามของ Saki เกี่ยวกับ "การเปลี่ยนผ่านจาก initiating ไปยัง planning" ชี้ให้เห็น <strong>phase gates</strong> — checkpoints อย่างเป็นทางการที่ทีมประเมินว่าควรดำเนินต่อ เปลี่ยนทิศ หรือหยุด studio ของ Ren ข้ามสิ่งเหล่านี้ไปโดยสิ้นเชิง ("ลูกค้าตอบตกลง เราก็เริ่มสร้าง") ซึ่งเป็นเรื่องปกติในทีมเล็ก แต่เสี่ยงในโครงการขนาดใหญ่ phase gate ไม่จำเป็นต้องเป็นการประชุมกรรมการ — แม้แต่การ check-in ของทีม 15 นาทีที่ถามว่า "เรามีสิ่งที่ต้องการเพื่อก้าวต่อไปแล้วหรือยัง?" ก็นับ
+      <br>
+      <span class="concept-tip">Phoenix Project Connection</span> ใน <em>The Phoenix Project</em> ทีมเรียนรู้ว่า work-in-progress ที่ควบคุมไม่ได้เริ่มต้นเมื่อโครงการเข้าสู่ execution โดยไม่มี planning gates ที่เหมาะสม Flow เริ่มต้นจากวินัยที่ entry point
+    </div>
+  </section>
+
+  <footer class="unit-footer">
+    <span>Project Doki Doki</span>
+    <span>Phase 1 · Unit 01 / 100</span>
+  </footer>
+
+</body>
+</html>

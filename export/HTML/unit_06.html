@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Doki Doki — Unit 06: Drawing the Line</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 15mm;
+    }
+
+    :root {
+      --accent-deep:    #1a3a5c;
+      --accent-accent:  #2a5a8c;
+      --accent-mid:     #4a7ab0;
+      --accent-soft:    #e8f0f8;
+      --accent-ghost:   #f2f6fa;
+      --accent-border:  #c8d8e8;
+
+      --coral-deep:     #c45a3c;
+      --coral-accent:   #d4745a;
+      --coral-soft:     #fdf0ec;
+      --coral-border:   #e8c4b8;
+
+      --ink:            #1a1a1a;
+      --ink-light:      #4a4a4a;
+      --rule:           #d0d0d0;
+      --page:           #ffffff;
+      --grey-100:       #f5f5f5;
+      --grey-200:       #e8e8e8;
+      --grey-300:       #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 118mm;
+      margin: 0 auto;
+      background: var(--page);
+    }
+
+    /* Header */
+    .unit-header {
+      border-bottom: 2px solid var(--accent-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .unit-number {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .unit-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 1px;
+    }
+    .unit-subtitle {
+      font-size: 8pt;
+      color: var(--ink-light);
+    }
+
+    /* Scenario */
+    .scenario {
+      margin-bottom: 8px;
+    }
+    .scene-setting {
+      font-style: italic;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .dialogue-line {
+      margin-bottom: 3px;
+      line-height: 1.5;
+    }
+    .speaker-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-right: 4px;
+    }
+    .persona-ren  { background: #e3ecf5; color: #1a3a5c; }
+    .persona-saki { background: #fdf0ec; color: #8c3a2a; }
+
+    .annotation {
+      font-size: 8pt;
+      color: var(--ink-light);
+      padding-left: 16px;
+      margin-bottom: 5px;
+      border-left: 2px solid var(--accent-border);
+      line-height: 1.4;
+    }
+
+    /* Key Concept Card (Term Card) */
+    .term-card {
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .term-card-name {
+      font-weight: 700;
+      color: var(--accent-deep);
+      font-size: 9pt;
+      border-bottom: 1px solid var(--accent-border);
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+    .term-card-row {
+      margin-bottom: 2px;
+    }
+    .term-card-label {
+      font-weight: 600;
+      color: var(--accent-accent);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Review Corner */
+    .review-corner {
+      border-top: 1px solid var(--rule);
+      padding-top: 8px;
+      margin-top: 8px;
+    }
+    .review-title {
+      font-weight: 700;
+      color: var(--accent-deep);
+      font-size: 9pt;
+      margin-bottom: 6px;
+    }
+    .review-item {
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+    }
+    .review-number {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: var(--accent-accent);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 7pt;
+      line-height: 16px;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+    .review-item-title {
+      font-weight: 600;
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+    .review-dialogue {
+      margin-bottom: 2px;
+      line-height: 1.45;
+      font-size: 8.5pt;
+    }
+    .review-annotation {
+      font-size: 8pt;
+      color: var(--ink-light);
+      padding-left: 16px;
+      border-left: 2px solid var(--coral-border);
+      margin-top: 2px;
+    }
+
+    /* Subplot moment */
+    .subplot-moment {
+      border-left: 2px solid var(--coral-border);
+      padding-left: 8px;
+      margin: 4px 0;
+    }
+
+    /* Footer */
+    .unit-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 4px;
+      margin-top: 10px;
+      font-size: 7pt;
+      color: var(--grey-300);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="unit-header">
+    <span class="unit-number">Unit 06 · Phase 1</span>
+    <h1 class="unit-title">Drawing the Line</h1>
+    <p class="unit-subtitle">The scope statement gets real</p>
+  </header>
+
+  <section class="scenario">
+
+    <p class="scene-setting">
+      Kurosawa Digital, meeting room B. 7:40 PM. The office is nearly empty. Ren has printed his draft scope statement; Saki has already covered it in red pen. Director Kudo's assistant has just forwarded yet another feature request via email.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "Okay, I wrote up what's in and what's out. It's all here — one page, nice and clean."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "Your <strong>scope statement</strong> (a detailed description of the project scope including <strong>deliverables</strong> and boundaries) is missing exclusions, acceptance criteria, and constraints. That's not a scope statement — it's a wish list."
+    </p>
+    <p class="annotation">
+      → A <em>scope statement</em> formally documents what the project will and won't deliver. Without explicit boundaries, any request can be argued as "in scope."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "Fine, fine. But before you redline everything — can we at least agree on the big pieces? Like, the XR demo module, the content pipeline, the analytics dashboard. Those are the <strong>work packages</strong> (the lowest-level tasks we can actually assign and track)."
+    </p>
+    <p class="annotation">
+      → <em>Work packages</em> are the smallest units in a WBS — concrete enough to be estimated, assigned, and monitored.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "Those aren't work packages yet. They're categories. We need a <strong>WBS</strong> (Work Breakdown Structure — a hierarchical decomposition of total project work) to break each one down into manageable units."
+    </p>
+    <p class="annotation">
+      → The <em>WBS</em> organizes all project work into a tree structure. It ensures nothing is missed and nothing is duplicated.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "So you want me to turn one page into a tree diagram. Tonight."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "I want you to do it properly. Once the scope statement and WBS are approved together, they become the <strong>scope baseline</strong> (the approved version of the scope statement and WBS) — the reference point for every future decision."
+    </p>
+    <p class="annotation">
+      → The <em>scope baseline</em> locks in what was agreed. Any change after this point must go through formal evaluation.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "Wait — that email from Kudo's assistant. Another feature? We haven't even baselined yet and scope is already creeping."
+    </p>
+
+    <div class="subplot-moment">
+      <p class="dialogue-line">
+        <span class="speaker-tag persona-saki">Saki (咲希)</span>
+        "Then let's finish this tonight. I'll help you restructure it. It's just… process."
+      </p>
+      <p class="scene-setting" style="margin-top: 3px; margin-bottom: 0;">
+        She pulls her chair closer to the whiteboard. Ren isn't sure "just process" explains why she's still here at 8 PM on a Thursday.
+      </p>
+    </div>
+
+  </section>
+
+  <section class="term-card">
+    <div class="term-card-name">Scope Statement</div>
+    <div class="term-card-row"><span class="term-card-label">Definition </span> A detailed description of the project scope including deliverables, boundaries, exclusions, constraints, and acceptance criteria.</div>
+    <div class="term-card-row"><span class="term-card-label">Components </span> Project objectives · Deliverables list · Exclusions · Constraints · Assumptions</div>
+    <div class="term-card-row"><span class="term-card-label">Related Terms </span> deliverable, scope baseline, project</div>
+    <div class="term-card-row"><span class="term-card-label">Example </span> Ren's draft listed features but omitted exclusions and acceptance criteria — exactly what Saki flagged. A complete scope statement prevents "I assumed that was included" arguments later.</div>
+  </section>
+
+  <section class="term-card">
+    <div class="term-card-name">WBS (Work Breakdown Structure)</div>
+    <div class="term-card-row"><span class="term-card-label">Definition </span> A hierarchical decomposition of total project work into smaller, manageable components.</div>
+    <div class="term-card-row"><span class="term-card-label">Components </span> Top level (project) · Major deliverables · Sub-deliverables · Work packages</div>
+    <div class="term-card-row"><span class="term-card-label">Related Terms </span> work package, scope statement, deliverable</div>
+    <div class="term-card-row"><span class="term-card-label">Example </span> Saki pushed Ren to break "XR demo module" into sub-components: scene rendering, interaction layer, content loader. Each branch ends in a work package that one person can own.</div>
+  </section>
+
+  <section class="term-card">
+    <div class="term-card-name">Work Package</div>
+    <div class="term-card-row"><span class="term-card-label">Definition </span> The lowest level of the WBS, representing a manageable unit of work that can be estimated, scheduled, and assigned.</div>
+    <div class="term-card-row"><span class="term-card-label">Components </span> Defined scope · Estimated effort · Assigned owner · Measurable completion criteria</div>
+    <div class="term-card-row"><span class="term-card-label">Related Terms </span> WBS, deliverable, milestone</div>
+    <div class="term-card-row"><span class="term-card-label">Example </span> "Build interaction layer for XR demo" is a work package — small enough to assign to a developer, large enough to produce a testable output.</div>
+  </section>
+
+  <section class="term-card">
+    <div class="term-card-name">Scope Baseline</div>
+    <div class="term-card-row"><span class="term-card-label">Definition </span> The approved version of the scope statement and WBS, used as a reference point for measuring project performance and managing changes.</div>
+    <div class="term-card-row"><span class="term-card-label">Components </span> Approved scope statement · Approved WBS · WBS dictionary</div>
+    <div class="term-card-row"><span class="term-card-label">Related Terms </span> scope statement, WBS, deliverable</div>
+    <div class="term-card-row"><span class="term-card-label">Example </span> Once Ren and Saki finalize the scope statement and WBS together, that combination becomes the scope baseline — the line against which every future "Can we just add…" gets measured.</div>
+  </section>
+
+  <section class="review-corner">
+    <div class="review-title">Review Corner</div>
+
+    <div class="review-item">
+      <div class="review-item-title"><span class="review-number">1</span> The Charter Check</div>
+      <p class="review-dialogue">
+        <span class="speaker-tag persona-ren">Ren (蓮)</span> "Saki, Director Kudo's new feature — was that in the original <strong>project</strong> charter?"
+      </p>
+      <p class="review-dialogue">
+        <span class="speaker-tag persona-saki">Saki (咲希)</span> "No. The charter authorized a single-platform XR build. Retail expansion is a separate initiative. That's exactly why we baseline."
+      </p>
+      <p class="review-annotation">
+        → <em>Project charter &amp; business case</em> (Unit 4): The charter defines the project's authorized boundaries. Anything outside it requires formal justification.
+      </p>
+    </div>
+
+    <div class="review-item">
+      <div class="review-item-title"><span class="review-number">2</span> The Hidden Stakeholder</div>
+      <p class="review-dialogue">
+        <span class="speaker-tag persona-ren">Ren (蓮)</span> "I just realized — we never added VP Yamamoto to the <strong>stakeholder register</strong>. And now she's got <strong>requirements</strong> for a retail pilot."
+      </p>
+      <p class="review-dialogue">
+        <span class="speaker-tag persona-saki">Saki (咲希)</span> "Update the register immediately. Assess her <strong>influence</strong> and <strong>engagement level</strong>. A <strong>stakeholder</strong> you don't track is a risk you can't manage."
+      </p>
+      <p class="review-annotation">
+        → <em>Stakeholder identification &amp; analysis</em> (Units 3, 5): The stakeholder register is a living document. New stakeholders can emerge at any time — especially when senior leaders make introductions.
+      </p>
+    </div>
+  </section>
+
+  <footer class="unit-footer">
+    <span>Project Doki Doki</span>
+    <span>Phase 1 · Unit 06 / 100</span>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Doki Doki — Unit 20: Tools of the Trade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 15mm;
+    }
+
+    :root {
+      --accent-deep:    #1a3a5c;
+      --accent-accent:  #2a5a8c;
+      --accent-mid:     #4a7ab0;
+      --accent-soft:    #e8f0f8;
+      --accent-ghost:   #f2f6fa;
+      --accent-border:  #c8d8e8;
+
+      --coral-deep:     #c45a3c;
+      --coral-accent:   #d4745a;
+      --coral-soft:     #fdf0ec;
+      --coral-border:   #e8c4b8;
+
+      --ink:            #1a1a1a;
+      --ink-light:      #4a4a4a;
+      --rule:           #d0d0d0;
+      --page:           #ffffff;
+      --grey-100:       #f5f5f5;
+      --grey-200:       #e8e8e8;
+      --grey-300:       #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 118mm;
+      margin: 0 auto;
+      background: var(--page);
+    }
+
+    /* Header */
+    .unit-header {
+      border-bottom: 2px solid var(--accent-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .unit-number {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .unit-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 1px;
+    }
+    .unit-subtitle {
+      font-size: 8pt;
+      color: var(--ink-light);
+    }
+
+    /* Persona tags */
+    .speaker-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-right: 4px;
+    }
+    .persona-ren   { background: #e3ecf5; color: #1a3a5c; }
+    .persona-saki  { background: #fdf0ec; color: #8c3a2a; }
+    .persona-tetsu { background: #e8f5e8; color: #2a5c2a; }
+    .persona-kudo  { background: #f5f0e8; color: #5c4a1a; }
+    .persona-hina  { background: #f0e8f5; color: #4a2a5c; }
+
+    /* Reference Material */
+    .reference-material {
+      font-family: 'Noto Serif', Georgia, 'Times New Roman', serif;
+      font-size: 9pt;
+      background: var(--grey-100);
+      border-left: 3px solid var(--accent-mid);
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+    .reference-type-badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      padding: 1px 8px;
+      border-radius: 3px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .reference-material h3 {
+      font-size: 9.5pt;
+      font-weight: 700;
+      margin: 6px 0 3px 0;
+      color: var(--ink);
+    }
+    .reference-material h3:first-of-type {
+      margin-top: 4px;
+    }
+    .reference-material p {
+      margin-bottom: 3px;
+    }
+    .reference-material ul {
+      margin: 2px 0 3px 16px;
+      padding: 0;
+    }
+    .reference-material li {
+      margin-bottom: 1px;
+    }
+    .reference-material table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 4px 0;
+      font-size: 8.5pt;
+    }
+    .reference-material th {
+      text-align: left;
+      font-weight: 700;
+      border-bottom: 1px solid var(--rule);
+      padding: 2px 4px;
+      font-size: 8pt;
+    }
+    .reference-material td {
+      padding: 2px 4px;
+      border-bottom: 1px solid var(--grey-200);
+    }
+    .rag-green { color: #2a7a2a; font-weight: 700; }
+    .rag-amber { color: #b8860b; font-weight: 700; }
+
+    /* Key Concept Card */
+    .term-card {
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .term-card-name {
+      font-weight: 700;
+      color: var(--accent-deep);
+      font-size: 9pt;
+      border-bottom: 1px solid var(--accent-border);
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+    .term-card-row {
+      margin-bottom: 2px;
+    }
+    .term-card-label {
+      font-weight: 600;
+      color: var(--accent-accent);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Subplot moment */
+    .subplot-moment {
+      border-left: 2px solid var(--coral-border);
+      padding-left: 8px;
+      margin: 3px 0;
+    }
+
+    /* Footer */
+    .unit-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 4px;
+      margin-top: 10px;
+      font-size: 7pt;
+      color: var(--grey-300);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="unit-header">
+    <span class="unit-number">Unit 20 &middot; Phase 1</span>
+    <h1 class="unit-title">Tools of the Trade</h1>
+    <p class="unit-subtitle">The PM's vocabulary expands</p>
+  </header>
+
+  <section>
+    <span class="reference-type-badge">Status Report</span>
+    <div class="reference-material">
+      <p style="text-align: center; font-weight: 700; font-size: 10pt; margin-bottom: 2px;">Month 2 Status Report &mdash; XR Platform</p>
+      <p style="font-size: 8pt; color: var(--ink-light); text-align: center; margin-bottom: 6px;">Pulse Works &times; Kurosawa Digital &mdash; Prepared by Hina &middot; Reviewed by Ren</p>
+
+      <h3>Overall Status</h3>
+      <table>
+        <tr>
+          <th>Area</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td>Scope</td>
+          <td><span class="rag-green">GREEN</span></td>
+          <td>No unapproved changes since scope <strong>baseline</strong> approval</td>
+        </tr>
+        <tr>
+          <td>Schedule</td>
+          <td><span class="rag-amber">AMBER</span></td>
+          <td>2.5-day <strong>variance</strong> on environment setup; recovery plan active</td>
+        </tr>
+        <tr>
+          <td>Cost</td>
+          <td><span class="rag-green">GREEN</span></td>
+          <td>Actual spend 4% below <strong>cost baseline</strong>; <strong>contingency reserve</strong> untouched</td>
+        </tr>
+        <tr>
+          <td>Resources</td>
+          <td><span class="rag-amber">AMBER</span></td>
+          <td>Tetsu at 115% utilization; cross-training in progress</td>
+        </tr>
+      </table>
+
+      <h3>Key Accomplishments</h3>
+      <ul>
+        <li>Spatial mapping module passed initial <strong>work authorization</strong> and development began</li>
+        <li>Post-crash retrospective completed; 4 action items tracked</li>
+        <li>First cross-training session held (Hina shadowing Tetsu on environment configuration)</li>
+      </ul>
+
+      <h3>Performance Measurement</h3>
+      <p><strong>Planned value</strong> through Month 2: &yen;9.6M. <strong>Earned value</strong>: &yen;8.9M. <strong>Actual cost</strong>: &yen;8.5M. Schedule is slightly behind plan, but cost efficiency is favorable. The <strong>control account</strong> for the rendering module shows the largest variance &mdash; directly tied to the environment crash recovery.</p>
+
+      <h3>Upcoming Decisions</h3>
+      <ul>
+        <li>AR module scope decision required from Director Kudo by Friday</li>
+        <li>Vendor selection for gesture recognition library &mdash; evaluation in progress</li>
+      </ul>
+
+      <div class="subplot-moment" style="margin-top: 6px;">
+        <p style="font-size: 8pt; color: var(--ink-light); font-style: italic;">
+          <span class="speaker-tag persona-hina" style="font-style: normal;">Hina (陽菜)</span>
+          "Ren, is Saki always that intense? She sent twelve comments on the draft."
+          <span class="speaker-tag persona-ren" style="font-style: normal; margin-left: 4px;">Ren (蓮)</span>
+          "Yes." <em>A pause.</em> "But she's really good at her job."
+        </p>
+        <p style="font-size: 8pt; color: var(--ink-light); font-style: italic; margin-top: 2px;">
+          Hina raises an eyebrow but says nothing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="term-card">
+      <div class="term-card-name">Baseline</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> An approved reference point used for comparison against actual results.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Scope baseline (WBS + scope statement); schedule baseline (approved timeline); cost baseline (time-phased budget).</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> scope baseline, cost baseline, planned value</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The status report compares actual progress against the approved baselines &mdash; scope is on track, schedule shows a 2.5-day variance, cost is 4% favorable.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Variance</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The difference between planned and actual performance.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Schedule variance (timing gaps); cost variance (budget gaps); scope variance (deliverable gaps); trend direction.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> baseline, cost variance, earned value</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The 2.5-day schedule variance on environment setup is a measurable gap between where the plan said the team would be and where they actually are.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Performance Measurement</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The process of tracking and evaluating project progress.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Defining metrics; collecting data; comparing against baselines; reporting results; recommending corrective actions.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> earned value, planned value, actual cost</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> Hina's report tracks planned value (&yen;9.6M), earned value (&yen;8.9M), and actual cost (&yen;8.5M) &mdash; three data points that together reveal both schedule lag and cost efficiency.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Control Account</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A management control point for scope, schedule, and cost integration.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Assigned to a WBS element; has its own budget and schedule; owned by one person; performance measured independently.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> WBS, work package, cost baseline</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The rendering module has its own control account, making it easy to see that the crash recovery is the source of the schedule variance &mdash; without that isolation, the problem would be hidden in aggregate numbers.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Work Authorization</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> A formal approval to begin work on a specific project activity.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Identifies the activity or work package; specifies start conditions; assigns resources; links to the schedule and budget.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> work package, scope baseline, schedule</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The spatial mapping module received formal work authorization before development began &mdash; ensuring the team had approved scope, budget, and schedule before committing resources.</div>
+    </div>
+  </section>
+
+  <footer class="unit-footer">
+    <span>Project Doki Doki</span>
+    <span>Phase 1 &middot; Unit 20 / 100</span>
+  </footer>
+
+</body>
+</html>

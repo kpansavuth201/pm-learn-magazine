@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Doki Doki — Unit 12: Budget Battles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 15mm;
+    }
+
+    :root {
+      --accent-deep:    #1a3a5c;
+      --accent-accent:  #2a5a8c;
+      --accent-mid:     #4a7ab0;
+      --accent-soft:    #e8f0f8;
+      --accent-ghost:   #f2f6fa;
+      --accent-border:  #c8d8e8;
+
+      --coral-deep:     #c45a3c;
+      --coral-accent:   #d4745a;
+      --coral-soft:     #fdf0ec;
+      --coral-border:   #e8c4b8;
+
+      --ink:            #1a1a1a;
+      --ink-light:      #4a4a4a;
+      --rule:           #d0d0d0;
+      --page:           #ffffff;
+      --grey-100:       #f5f5f5;
+      --grey-200:       #e8e8e8;
+      --grey-300:       #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 118mm;
+      margin: 0 auto;
+      background: var(--page);
+    }
+
+    /* Header */
+    .unit-header {
+      border-bottom: 2px solid var(--accent-deep);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .unit-number {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .unit-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent-deep);
+      margin-bottom: 1px;
+    }
+    .unit-subtitle {
+      font-size: 8pt;
+      color: var(--ink-light);
+    }
+
+    /* Scenario */
+    .scenario {
+      margin-bottom: 8px;
+    }
+    .scene-setting {
+      font-style: italic;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .dialogue-line {
+      margin-bottom: 3px;
+      line-height: 1.5;
+    }
+    .speaker-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-right: 4px;
+    }
+    .persona-ren    { background: #e3ecf5; color: #1a3a5c; }
+    .persona-saki   { background: #fdf0ec; color: #8c3a2a; }
+    .persona-tetsu  { background: #e8f5e8; color: #2a5c2a; }
+    .persona-kudo   { background: #f5f0e8; color: #5c4a1a; }
+    .persona-hina   { background: #f0e8f5; color: #4a2a5c; }
+
+    .annotation {
+      font-size: 8pt;
+      color: var(--ink-light);
+      padding-left: 16px;
+      margin-bottom: 5px;
+      border-left: 2px solid var(--accent-border);
+      line-height: 1.4;
+    }
+
+    /* Key Concept Card */
+    .term-card {
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+    }
+    .term-card-name {
+      font-weight: 700;
+      color: var(--accent-deep);
+      font-size: 9pt;
+      border-bottom: 1px solid var(--accent-border);
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+    .term-card-row {
+      margin-bottom: 2px;
+    }
+    .term-card-label {
+      font-weight: 600;
+      color: var(--accent-accent);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Review Corner */
+    .review-corner {
+      border-top: 1px solid var(--rule);
+      padding-top: 8px;
+      margin-top: 8px;
+    }
+    .review-title {
+      font-weight: 700;
+      color: var(--accent-deep);
+      font-size: 9pt;
+      margin-bottom: 6px;
+    }
+    .review-item {
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+    }
+    .review-number {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: var(--accent-accent);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 7pt;
+      line-height: 16px;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+    .review-item-title {
+      font-weight: 600;
+      color: var(--accent-deep);
+      font-size: 8.5pt;
+    }
+    .review-dialogue {
+      margin: 2px 0;
+      line-height: 1.5;
+    }
+    .review-annotation {
+      font-size: 8pt;
+      color: var(--ink-light);
+      padding-left: 16px;
+      border-left: 2px solid var(--coral-border);
+      margin-top: 2px;
+    }
+
+    /* Subplot moment */
+    .subplot-moment {
+      border-left: 2px solid var(--coral-border);
+      padding-left: 8px;
+      margin: 3px 0;
+    }
+
+    /* Footer */
+    .unit-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 4px;
+      margin-top: 10px;
+      font-size: 7pt;
+      color: var(--grey-300);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="unit-header">
+    <span class="unit-number">Unit 12 &middot; Phase 1</span>
+    <h1 class="unit-title">Budget Battles</h1>
+    <p class="unit-subtitle">When the numbers don't add up</p>
+  </header>
+
+  <section class="scenario">
+
+    <p class="scene-setting">
+      Video call, 9 PM. Ren is at his apartment desk, takeout containers pushed aside. Saki's background is her office &mdash; still at Kurosawa Digital. Director Kudo joins from what appears to be a restaurant, his camera angled upward.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-kudo">Director Kudo (工藤)</span>
+      "I've reviewed the <strong>cost estimate</strong>. The board expects this project to come in under &yen;45M. The number you're showing me is &yen;51M. I trust the team to find efficiencies."
+    </p>
+    <p class="annotation">
+      &rarr; Director Kudo is applying stakeholder pressure without specifying where to cut &mdash; a common pattern that forces PMs to absorb the gap between ambition and reality.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "Director Kudo, the &yen;51M includes the <strong>contingency reserve</strong> for the vendor pricing risk we flagged. If we strip that out, we're betting nothing goes wrong."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "The <strong>cost baseline</strong> needs to reflect realistic spending. If we approve an artificially low number, every status report will show a <strong>cost variance</strong> (the difference between what we've earned and what we've actually spent). We'd be measuring failure by design."
+    </p>
+    <p class="annotation">
+      &rarr; <em>Cost management</em> depends on honest baselines. A cost baseline set below actual needs doesn't save money &mdash; it just makes every report look like a crisis.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-kudo">Director Kudo (工藤)</span>
+      "Let's be strategic about this. Show me what the project has delivered versus what it's spent. Not projections &mdash; actuals."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "Okay, so our <strong>planned value</strong> (the authorized <strong>budget</strong> for work we should have finished by now) is &yen;6.2M. Our <strong>actual cost</strong> (what we've really spent) is &yen;6.8M. And the <strong>earned value</strong> (the value of work actually completed) is about &yen;5.9M."
+    </p>
+    <p class="annotation">
+      &rarr; These three values &mdash; <strong>planned value</strong>, <strong>actual cost</strong>, and <strong>earned value</strong> &mdash; are the foundation of cost performance measurement. Together they reveal whether a project is on budget, over budget, or behind in delivering value.
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-saki">Saki (咲希)</span>
+      "So we're spending more than planned and delivering less than planned. The <strong>cost variance</strong> is negative. That's the honest picture."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-kudo">Director Kudo (工藤)</span>
+      "Fix the trend. I'll give you until the Phase 1 review to show improvement. But the &yen;48M ceiling holds."
+    </p>
+
+    <p class="dialogue-line">
+      <span class="speaker-tag persona-ren">Ren (蓮)</span>
+      "Understood. We'll tighten the <strong>schedule</strong> to pull some <strong>earned value</strong> forward and reassess the vendor contracts."
+    </p>
+
+  </section>
+
+  <div class="subplot-moment">
+    <p class="scene-setting" style="margin-bottom: 0;">
+      Director Kudo dropped off the call. An awkward silence. Then Saki's email arrived: a spreadsheet breaking down where &yen;3M could be saved without touching contingency. Subject line: "Options &mdash; for your review." She signed off: "Good night, Ren." Not "Regards, Sakurai." He read it three times.
+    </p>
+  </div>
+
+  <section>
+    <div class="term-card">
+      <div class="term-card-name">Cost Variance</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The difference between earned value and actual cost.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Formula: CV = EV &minus; AC; positive = under budget; negative = over budget; used for trend analysis.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> earned value, actual cost, <strong>budget</strong></div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The XR project's CV is &yen;5.9M &minus; &yen;6.8M = &minus;&yen;0.9M &mdash; they've overspent relative to the value they've delivered.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Earned Value</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The value of work actually completed.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Measured against <strong>cost baseline</strong>; reflects progress, not spending; basis for performance indices.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> planned value, actual cost, cost variance</div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> Although &yen;6.8M was spent, only &yen;5.9M worth of work was completed &mdash; earned value reveals the project is behind on delivery, not just over on cost.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Planned Value</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The authorized budget assigned to scheduled work.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> Time-phased from <strong>cost baseline</strong>; cumulative over time; represents what should be done by a given date.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> earned value, <strong>cost baseline</strong>, <strong>schedule</strong></div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> By end of Month 1, &yen;6.2M of work was planned &mdash; that's the yardstick against which earned value is compared.</div>
+    </div>
+
+    <div class="term-card">
+      <div class="term-card-name">Actual Cost</div>
+      <div class="term-card-row"><span class="term-card-label">Definition </span> The realized cost for work performed during a specific time period.</div>
+      <div class="term-card-row"><span class="term-card-label">Components </span> All direct and indirect costs incurred; includes labor, materials, overhead; no ceiling &mdash; it's what was actually spent.</div>
+      <div class="term-card-row"><span class="term-card-label">Related </span> earned value, cost variance, <strong>budget</strong></div>
+      <div class="term-card-row"><span class="term-card-label">Example </span> The &yen;6.8M actual cost includes developer salaries, vendor deposits, and equipment &mdash; &yen;600K more than planned, partly from the vendor pricing volatility.</div>
+    </div>
+  </section>
+
+  <section class="review-corner">
+    <div class="review-title">Review Corner</div>
+
+    <div class="review-item">
+      <span class="review-number">1</span>
+      <span class="review-item-title">The Allocation Bind</span>
+      <p class="review-dialogue">
+        <span class="speaker-tag persona-ren">Ren (蓮)</span>
+        "If we move the junior developer to the content pipeline, she'll finish in three weeks. But that leaves Tetsu alone on the rendering engine &mdash; and he's already on the <strong>critical path</strong>."
+      </p>
+      <p class="review-dialogue">
+        <span class="speaker-tag persona-saki">Saki (咲希)</span>
+        "Then the question isn't 'can she do it.' It's 'what breaks if Tetsu has zero <strong>float</strong>?'"
+      </p>
+      <p class="review-annotation">
+        &rarr; Schedule management &amp; critical path (Unit 9): Moving resources away from critical-path activities eliminates float and increases project risk.
+      </p>
+    </div>
+
+    <div class="review-item">
+      <span class="review-number">2</span>
+      <span class="review-item-title">Estimation Revisited</span>
+      <p class="review-dialogue">
+        <span class="speaker-tag persona-saki">Saki (咲希)</span>
+        "Your <strong>cost estimate</strong> for the API integration is a single number. No range, no assumptions documented. How confident are you?"
+      </p>
+      <p class="review-dialogue">
+        <span class="speaker-tag persona-ren">Ren (蓮)</span>
+        "Honestly? It's a gut feel. I should have used three-point estimation like Hina suggested for the rendering engine."
+      </p>
+      <p class="review-annotation">
+        &rarr; Resource planning &amp; estimation (Unit 10): Single-point estimates hide uncertainty. Range-based estimates force the team to think about best, likely, and worst cases.
+      </p>
+    </div>
+
+    <div class="review-item">
+      <span class="review-number">3</span>
+      <span class="review-item-title">The Budget Shield</span>
+      <p class="review-dialogue">
+        <span class="speaker-tag persona-ren">Ren (蓮)</span>
+        "Director Kudo wants to cut the <strong>contingency reserve</strong> to hit his number. But that's the only buffer between us and the vendor risk we identified."
+      </p>
+      <p class="review-annotation">
+        &rarr; Cost management (Unit 11): Contingency reserves exist for identified risks. Cutting them doesn't remove the risk &mdash; it removes the safety net.
+      </p>
+    </div>
+  </section>
+
+  <footer class="unit-footer">
+    <span>Project Doki Doki</span>
+    <span>Phase 1 &middot; Unit 12 / 100</span>
+  </footer>
+
+</body>
+</html>
